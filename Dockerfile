@@ -1,12 +1,12 @@
-FROM jenkinsxio/builder-base:0.0.623
+FROM bryanlarsen/builder-base:2018-10-30
 
-RUN curl -f --silent --location https://rpm.nodesource.com/setup_9.x | bash - && \
-  yum install -y nodejs gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11-server-Xvfb
+RUN curl -f --silent --location https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs build-essential make bzip2 chromedriver chromium xvfb
 
 RUN npm i -g watch-cli vsce typescript
 
 # Yarn
-ENV YARN_VERSION 1.3.2
+ENV YARN_VERSION 1.12.1
 RUN curl -f -L -o /tmp/yarn.tgz https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-v${YARN_VERSION}.tar.gz && \	
 	tar xf /tmp/yarn.tgz && \
 	mv yarn-v${YARN_VERSION} /opt/yarn && \
