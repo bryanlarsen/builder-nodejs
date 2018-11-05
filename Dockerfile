@@ -1,4 +1,4 @@
-FROM bryanlarsen/builder-base:2018-11-02
+FROM bryanlarsen/builder-base:2018-11-05
 
 RUN curl -f --silent --location https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs build-essential make bzip2 chromedriver chromium xvfb
